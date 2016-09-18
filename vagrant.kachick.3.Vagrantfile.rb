@@ -154,17 +154,20 @@ Vagrant.configure("2") do |config|
     # Config iptables
     # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
     # http://askubuntu.com/questions/339790/how-can-i-prevent-apt-get-aptitude-from-showing-dialogs-during-installation
-    iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-    iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+    sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+    sudo iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
     # echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
     # echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
     # http://mktktmr.hatenablog.jp/entry/2016/04/08/213840
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
+    # sudo DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
 
     cd /vagrant
     # cd exists_project1
     bundle install
 
     # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
+    
+    # Run rails
+    # bundle exec rails server -p 3000 -b 0.0.0.0 # Since rails 4.2, The `-b 0.0.0.0` is mandatory for the VMs ref: http://qiita.com/hurukiyokimura/items/bd517c463d24ea9059f3
   SHELL
 end
