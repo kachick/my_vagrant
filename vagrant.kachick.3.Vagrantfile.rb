@@ -70,6 +70,8 @@ Vagrant.configure("2") do |config|
   # SHELL
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     # Below is adjusted to Ubuntu 14.0.4
+    
+    sudo apt-get update
 
     # Git
     # ref:
