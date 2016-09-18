@@ -120,6 +120,7 @@ Vagrant.configure("2") do |config|
     ruby-install ruby 2.3.1
     source ~/.bashrc
     chruby ruby-2.3.1
+    gem update --system
     gem install bundler
 
     cd /vagrant
