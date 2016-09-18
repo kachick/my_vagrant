@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y software-properties-common python-software-properties
     sudo add-apt-repository ppa:git-core/ppa
     sudo apt-get update
-    sudo apt-get upgrade
+    sudo apt-get -y upgrade
 
     # PostgreSQL 9.4.n # How to specify the `.n`?
     #
