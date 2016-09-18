@@ -78,6 +78,9 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y software-properties-common python-software-properties
     sudo add-apt-repository ppa:git-core/ppa
     sudo apt-get update
+    # Skip grub ...
+    # ref: http://askubuntu.com/questions/146921/how-do-i-apt-get-y-dist-upgrade-without-a-grub-config-prompt
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
     sudo apt-get -y upgrade
 
     # PostgreSQL 9.4.n # How to specify the `.n`?
