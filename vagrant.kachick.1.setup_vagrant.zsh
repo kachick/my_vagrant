@@ -3,6 +3,7 @@
 
 cd ~
 mkdir MyVagrant
+cd MyVagrant
 
 vagrant box add ubuntu14.04.with_docker https://github.com/jose-lpa/packer-ubuntu_14.04/releases/download/v2.0/ubuntu-14.04.box
 vagrant init ubuntu14.04.with_docker
