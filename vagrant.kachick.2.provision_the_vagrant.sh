@@ -1,6 +1,6 @@
 # Below is adjusted to Ubuntu 14.0.4
 
-# PostgreSQL 9.4.n # TODO Specify `9.4.5`
+# PostgreSQL 9.4.n # TODO How to specify the `.n` ?
 # 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
@@ -48,6 +48,9 @@ sudo apt-get update
 # sudo ruby-install --system ruby 2.3.1 # `sudo` does not fit for this.
 ruby-install ruby 2.3.1
 source ~/.bashrc
+
+# Redis
+sudo apt-get install -y redis-server
 
 cd /vagrant
 bundle install

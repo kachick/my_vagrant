@@ -71,6 +71,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     # Below is adjusted to Ubuntu 14.0.4
 
+    # Git
+    # ref:
+    #  * http://qiita.com/cointoss1973/items/1d419e51dbb8eccae972
+    #  * http://qiita.com/strsk/items/3a46a27ed12c49740ad3
+    sudo apt-get install -y software-properties-common python-software-properties
+    sudo add-apt-repository ppa:git-core/ppa
+    sudo apt-get update
+    sudo apt-get upgrade
+
     # PostgreSQL 9.4.n # TODO Specify `9.4.5`
     #
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
