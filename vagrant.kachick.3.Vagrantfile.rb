@@ -93,7 +93,9 @@ Vagrant.configure("2") do |config|
     
     # Create `vagrant` role without interactive mode
     # https://github.com/thoughtbot/laptop/issues/242#issuecomment-47358513
-    sudo -u postgres createuser --createdb vagrant
+    # https://github.com/diogob/activerecord-postgres-hstore/issues/99
+    # hstore requires superuser permission...
+    sudo -u postgres createuser --superuser vagrant
 
     # Mongo DB 3.2
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
