@@ -119,8 +119,11 @@ Vagrant.configure("2") do |config|
     # sudo ruby-install --system ruby 2.3.1
     ruby-install ruby 2.3.1
     source ~/.bashrc
+    chruby ruby-2.3.1
+    gem install bundler
 
     cd /vagrant
+    # cd exists_project1
     bundle install
 
     # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
