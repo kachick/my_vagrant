@@ -90,6 +90,10 @@ Vagrant.configure("2") do |config|
     sudo apt-get update
 
     sudo apt-get -y install postgresql-9.4 postgresql-server-dev-9.4 postgresql-contrib-9.4
+    
+    # Create `vagrant` role without interactive mode
+    # https://github.com/thoughtbot/laptop/issues/242#issuecomment-47358513
+    sudo -u postgres createuser --createdb vagrant
 
     # Mongo DB 3.2
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
