@@ -150,6 +150,14 @@ Vagrant.configure("2") do |config|
     sudo ln -sf /usr/local/bin/node /usr/bin/node
     sudo apt-get purge -y nodejs npm
     # sudo n 5.2.0
+    
+    # Config iptables
+    # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
+    # http://askubuntu.com/questions/339790/how-can-i-prevent-apt-get-aptitude-from-showing-dialogs-during-installation
+    iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+    echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+    echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+    sudo apt-get install -y iptables-persistent
 
     cd /vagrant
     # cd exists_project1
