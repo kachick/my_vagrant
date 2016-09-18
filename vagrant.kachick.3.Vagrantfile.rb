@@ -123,6 +123,16 @@ Vagrant.configure("2") do |config|
     gem update --system
     gem install bundler
 
+    # Node.js
+    # ref: http://qiita.com/seibe/items/36cef7df85fe2cefa3ea
+    sudo apt-get install -y nodejs npm
+    sudo npm cache clean
+    sudo npm install n -g
+    sudo n stable
+    sudo ln -sf /usr/local/bin/node /usr/bin/node
+    sudo apt-get purge -y nodejs npm
+    # sudo n 5.2.0
+
     cd /vagrant
     # cd exists_project1
     bundle install
