@@ -48,9 +48,8 @@ sudo apt-get update
 # sudo ruby-install --system ruby 2.3.1 # `sudo` does not fit for this.
 ruby-install ruby 2.3.1
 source ~/.bashrc
-chruby ruby-2.3.1
 
-# Gem
-# gem install rails n.n...
+cd /vagrant
+bundle install
 
 # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
