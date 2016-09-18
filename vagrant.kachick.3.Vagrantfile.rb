@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get update
     sudo apt-get upgrade
 
-    # PostgreSQL 9.4.n # TODO Specify `9.4.5`
+    # PostgreSQL 9.4.n # How to specify the `.n`?
     #
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
