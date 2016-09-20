@@ -120,6 +120,7 @@ Vagrant.configure("2") do |config|
     popd
     popd
     echo 'source /usr/local/share/chruby/chruby.sh' >> ~/.bashrc
+    echo 'source /usr/local/share/chruby/auto.sh' >> ~/.bashrc
 
     # ruby-install
     pushd /tmp
@@ -175,6 +176,8 @@ Vagrant.configure("2") do |config|
     done
     EOD
     zsh $tempfile
+    echo 'source /usr/local/share/chruby/chruby.sh' >> ~/.zshrc
+    echo 'source /usr/local/share/chruby/auto.sh' >> ~/.zshrc
     sudo chsh -s /bin/zsh vagrant
     
     # Finished the provision. Following codes are just for reminder how to use
