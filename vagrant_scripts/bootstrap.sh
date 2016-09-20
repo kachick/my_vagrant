@@ -86,8 +86,9 @@ sudo apt-get purge -y nodejs npm
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
 # http://askubuntu.com/questions/339790/how-can-i-prevent-apt-get-aptitude-from-showing-dialogs-during-installation
-sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
-sudo iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+# sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+# sudo iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.168.33.1 -m multiport --dports 0:65535 -j ACCEPT
 # echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 # echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 # http://mktktmr.hatenablog.jp/entry/2016/04/08/213840
