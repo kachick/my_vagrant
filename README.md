@@ -32,3 +32,21 @@ ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./", :Port => 8000)
 On Host OS
 
 Access `http://192.168.33.10:8000`
+
+Note
+---
+
+* 当初zsh周りとか触るつもりまったくなかったんだけど、rails server 叩くだけでもある程度要るなと思ったので最低限な感じで入れた。同じくgitの設定もしといた方が色々と楽になりそう。
+
+使い方
+---
+
+1. Vagrant と VirtualBox インストールして
+2. 自分のリポジトリトップへ移動して
+3. Vagrantfile と vagrant_scripts をこのリポジトリからコピーして
+4. `vagrant up` # 初回は大分時間かかる。
+5. `vagrant ssh` でログインして `cd /vagrant` すると、ゲストOSからリポジトリトップを触ることが出来る。
+6. 
+  * ホストOS上のエディタで適当に開発する
+  * ゲストOS上から `rails server` し、いつものオプションに `-b 0.0.0.0` を加えるようにする。
+  * ホストOSからのアクセスは `192.168.33.10` 宛にする。
