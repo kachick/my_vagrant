@@ -169,12 +169,12 @@ Vagrant.configure("2") do |config|
     sudo apt-get install -y zsh
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
     tempfile=$(mktemp --suffix .zsh)
-    cat <<EOD >$tempfile
+    cat << 'EOF' > $tempfile
     setopt EXTENDED_GLOB
     for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
       ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
     done
-    EOD
+    EOF
     zsh $tempfile
     echo 'source /usr/local/share/chruby/chruby.sh' >> ~/.zshrc
     echo 'source /usr/local/share/chruby/auto.sh' >> ~/.zshrc
