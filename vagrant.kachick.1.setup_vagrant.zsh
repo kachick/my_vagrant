@@ -8,8 +8,10 @@ cd MyVagrant
 vagrant box add ubuntu14.04.with_docker https://github.com/jose-lpa/packer-ubuntu_14.04/releases/download/v2.0/ubuntu-14.04.box
 vagrant init ubuntu14.04.with_docker
 
-ln -s exists_project1 ./exists_project1
-ln -s exists_project2 ./exists_project2
+# NOTE: We can not access as these when the origin directory has can not to be accessed from the guest OS
+# ln -s exists_project1/ ./exists_project1
+# ln -s exists_project2/ ./exists_project2
+# Then it will be `cp -p` and `rsync` way? :cry:
 
 # Edit the Vagrant
 # vim Vagrantfile
