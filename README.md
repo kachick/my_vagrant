@@ -1,9 +1,9 @@
 Do as following...
 
-```zsh
-# For Vagrant 1.8.4 + Virtual Box 5.0
-# I heard the 1.8.5 and 5.1 has some problems... :<
+* **For [Vagrant 1.8.4](https://releases.hashicorp.com/vagrant/1.8.4/) & [Virtual Box 5.0](https://www.virtualbox.org/wiki/Download_Old_Builds_5_0)**
+* I heard the 1.8.5 and 5.1 has some problems... :<
 
+```zsh
 vagrant box add ubuntu14.04.with_docker https://github.com/jose-lpa/packer-ubuntu_14.04/releases/download/v2.0/ubuntu-14.04.box
 
 cd ~/repos
