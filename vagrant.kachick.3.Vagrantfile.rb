@@ -168,6 +168,18 @@ Vagrant.configure("2") do |config|
     bundle install
 
     # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
+    # Updated the my thought :) I want minimumn zsh environments...
+    sudo apt-get install -y zsh
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    tempfile=$(mktemp --suffix .zsh)
+    cat <<EOD >tempfile
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+    EOD
+    zsh $tempfile
+    sudo chsh -s /bin/zsh vagrant
     
     # Run rails
     # bundle exec rails server -p 3000 -b 0.0.0.0 # Since rails 4.2, The `-b 0.0.0.0` is mandatory for the VMs ref: http://qiita.com/hurukiyokimura/items/bd517c463d24ea9059f3
