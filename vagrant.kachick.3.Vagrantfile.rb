@@ -163,10 +163,6 @@ Vagrant.configure("2") do |config|
     # http://mktktmr.hatenablog.jp/entry/2016/04/08/213840
     # sudo DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
 
-    cd /vagrant
-    # cd exists_project1
-    bundle install
-
     # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
     # Updated the my thought :) I want minimumn zsh environments...
     sudo apt-get install -y zsh
@@ -180,6 +176,12 @@ Vagrant.configure("2") do |config|
     EOD
     zsh $tempfile
     sudo chsh -s /bin/zsh vagrant
+    
+    # Finished the provision. Following codes are just for reminder how to use
+    
+    # cd /vagrant
+    # cd exists_project1
+    # bundle install
     
     # Run rails
     # bundle exec rails server -p 3000 -b 0.0.0.0 # Since rails 4.2, The `-b 0.0.0.0` is mandatory for the VMs ref: http://qiita.com/hurukiyokimura/items/bd517c463d24ea9059f3
