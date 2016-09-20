@@ -97,7 +97,7 @@ sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp -s 192.168.33.1 -m mul
 # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
 # Updated the my thought :) I want minimumn zsh environments...
 sudo apt-get install -y zsh
-zsh /vagrant/vagrant_scripts/etup_zsh.zsh
+zsh /vagrant/vagrant_scripts/setup_zsh.zsh
 sudo chsh -s /bin/zsh vagrant
 
 # Finished the provision. Following codes are just for reminder how to use
