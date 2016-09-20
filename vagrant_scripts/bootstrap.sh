@@ -86,7 +86,7 @@ sudo apt-get purge -y nodejs npm
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
 # http://askubuntu.com/questions/339790/how-can-i-prevent-apt-get-aptitude-from-showing-dialogs-during-installation
-sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
 sudo iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
 # echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 # echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
@@ -96,17 +96,7 @@ sudo iptables -A INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
 # I don't plan to install zsh and the more tools... Basically I want to develop on my Mac OS X. This script prepares running environment only :<
 # Updated the my thought :) I want minimumn zsh environments...
 sudo apt-get install -y zsh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-tempfile=$(mktemp --suffix .zsh)
-cat << 'EOF' > $tempfile
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-EOF
-zsh $tempfile
-echo 'source /usr/local/share/chruby/chruby.sh' >> ~/.zshrc
-echo 'source /usr/local/share/chruby/auto.sh' >> ~/.zshrc
+zsh /vagrant/vagrant_scripts/etup_zsh.zsh
 sudo chsh -s /bin/zsh vagrant
 
 # Finished the provision. Following codes are just for reminder how to use
