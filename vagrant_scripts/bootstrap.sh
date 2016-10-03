@@ -82,10 +82,12 @@ gem install bundler
 sudo apt-get install -y nodejs npm
 sudo npm cache clean
 sudo npm install n -g
-sudo n stable
+sudo n 5.12.0
 sudo ln -sf /usr/local/bin/node /usr/bin/node
 sudo apt-get purge -y nodejs npm
-sudo n 5.12.0
+
+# Images
+sudo apt-get install -y imagemagick graphicsmagick
 
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
