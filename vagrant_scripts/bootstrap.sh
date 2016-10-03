@@ -90,7 +90,7 @@ sudo apt-get purge -y nodejs npm
 sudo apt-get install -y imagemagick graphicsmagick
 
 # For capybara-webkit ref: https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
-sudo apt-get install libqt4-dev libqtwebkit-dev
+sudo apt-get install -y libqt4-dev libqtwebkit-dev
 
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
