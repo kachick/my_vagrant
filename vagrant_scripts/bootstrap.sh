@@ -85,7 +85,7 @@ sudo npm install n -g
 sudo n stable
 sudo ln -sf /usr/local/bin/node /usr/bin/node
 sudo apt-get purge -y nodejs npm
-# sudo n 5.2.0
+sudo n 5.12.0
 
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
