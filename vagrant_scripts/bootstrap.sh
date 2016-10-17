@@ -86,6 +86,8 @@ sudo n 5.12.0
 sudo ln -sf /usr/local/bin/node /usr/bin/node
 sudo apt-get purge -y nodejs npm
 
+sudo npm install -g gulp
+
 # Images
 sudo apt-get install -y imagemagick graphicsmagick
 
