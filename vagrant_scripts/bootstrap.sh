@@ -97,6 +97,10 @@ sudo apt-get install -y libqt4-dev libqtwebkit-dev
 sudo apt-get install -y redis-server
 sudo apt-get install -y memcached
 
+# For Capybara-Webkit
+#   ref: http://qiita.com/amoO_O/items/31d56493887fd0d1edac
+sudo apt-get install -y xvfb
+
 # Config iptables
 # ref: http://azwoo.hatenablog.com/entry/2015/03/11/143248
 # http://askubuntu.com/questions/339790/how-can-i-prevent-apt-get-aptitude-from-showing-dialogs-during-installation
