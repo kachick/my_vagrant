@@ -70,10 +70,9 @@ sudo apt-key update
 sudo apt-get update
 
 # Ruby
-# sudo ruby-install --system ruby 2.3.1
-ruby-install ruby 2.3.1
+ruby-install ruby 2.3.3
 source ~/.bashrc
-chruby ruby-2.3.1
+chruby ruby-2.3.3
 gem update --system
 gem install bundler
 
