@@ -25,13 +25,14 @@ How to check the network via one line HTTP server
 
 On guest OS
 ```shell
-chruby ruby-2.3.1 
+chruby ruby-2.3.3
 ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./", :Port => 8000).start'
 ```
 
 On Host OS
 
-Access `http://192.168.33.10:8000`
+1. Add `192.168.33.10   vagrant.develop` into your /etc/hosts
+2. Access `http://vagrant.develop:8000`
 
 Note
 ---
@@ -46,7 +47,7 @@ Note
 3. Vagrantfile と vagrant_scripts をこのリポジトリからコピーして
 4. `vagrant up` # 初回は大分時間かかる。
 5. `vagrant ssh` でログインして `cd /vagrant` すると、ゲストOSからリポジトリトップを触ることが出来る。
-6. 
+6.
   * ホストOS上のエディタで適当に開発する
   * ゲストOS上から `rails server` し、いつものオプションに `-b 0.0.0.0` を加えるようにする。
   * ホストOSからのアクセスは `192.168.33.10` 宛にする。

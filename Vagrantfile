@@ -30,6 +30,9 @@ Vagrant.configure("2") do |config|
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.33.10" # `192.168.33.10-19` sets the host address as `192.168.33.1` ref: http://ikemonn.hatenablog.com/entry/2014/07/11/173252
 
+  # Some :cookie:s depend hostname, so use it will be stable...
+  config.vm.hostname = 'vagrant.develop' # Avoid to use `vagrant.dev`
+
   # DO NOT FORGET to permit host address in the guest iptables
   # We can check it easy with one liner
   # `ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./", :Port => 8000).start'`
