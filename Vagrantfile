@@ -47,6 +47,7 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant", type: "nfs" # http://webradar.info/2014/03/06/slowly-rails-in-vagrant/
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -78,7 +79,7 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
   config.vm.provision "shell", privileged: false, path: 'vagrant_scripts/bootstrap.sh'
-  
+
   ## https://github.com/dotless-de/vagrant-vbguest
   # we will try to autodetect this path.
   # However, if we cannot or you have a special one you may pass it like:
@@ -94,4 +95,10 @@ Vagrant.configure("2") do |config|
 
   # do NOT download the iso file from a webserver
   config.vbguest.no_remote = true
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "4096", "--cpus", "2", "--ioapic", "on"] # http://qiita.com/d_nishiyama85/items/c50c95795865ae7f714b
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"] # http://qiita.com/s-kiriki/items/357dc585ee562789ac7b
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+  end
 end

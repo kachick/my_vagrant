@@ -46,8 +46,9 @@ Note
 2. 自分のリポジトリトップへ移動して
 3. Vagrantfile と vagrant_scripts をこのリポジトリからコピーして
 4. `vagrant up` # 初回は大分時間かかる。
-5. `vagrant ssh` でログインして `cd /vagrant` すると、ゲストOSからリポジトリトップを触ることが出来る。
-6.
+5. Add https://github.com/mitchellh/vagrant/blob/master/contrib/sudoers/osx into bottom of `sudo visudo` on your Mac OS X # http://qiita.com/yungsang/items/68f0ac35cd2774b3b957
+6. `vagrant ssh` でログインして `cd /vagrant` すると、ゲストOSからリポジトリトップを触ることが出来る。
+7.
   * ホストOS上のエディタで適当に開発する
   * ゲストOS上から `rails server` し、いつものオプションに `-b 0.0.0.0` を加えるようにする。
   * ホストOSからのアクセスは `192.168.33.10` 宛にする。
