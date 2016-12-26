@@ -98,7 +98,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "4096", "--cpus", "2", "--ioapic", "on"] # http://qiita.com/d_nishiyama85/items/c50c95795865ae7f714b
-    vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"] # http://qiita.com/s-kiriki/items/357dc585ee562789ac7b
-    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"] # http://qiita.com/s-kiriki/items/357dc585ee562789ac7b # http://qiita.com/yashikawa7/items/247df1439b2fa485f4e4
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end
