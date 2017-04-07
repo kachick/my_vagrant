@@ -81,7 +81,7 @@ gem install bundler
 sudo apt-get install -y nodejs npm
 sudo npm cache clean
 sudo npm install n -g
-sudo n 4.6.1
+sudo n 6.10.1
 sudo ln -sf /usr/local/bin/node /usr/bin/node
 sudo apt-get purge -y nodejs npm
 
