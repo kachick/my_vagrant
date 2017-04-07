@@ -29,20 +29,17 @@ sudo apt-get -y install postgresql-9.4 postgresql-server-dev-9.4 postgresql-cont
 sudo -u postgres createuser --superuser vagrant
 
 # Mongo DB 3.2
-# I'm give up to use apt-get :grin:
-# refs:
-#   * http://dqn.sakusakutto.jp/2012/04/mongodb-install-linux-javascript.html
-#   * https://www.mongodb.com/download-center#community
-tmp_mongo_archive=$(mktemp --suffix .tgz)
-curl https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1404-3.2.9.tgz > "$tmp_mongo_archive"
-tar xzfv "$tmp_mongo_archive"
-pushd mongodb-linux-x86_64-ubuntu1404-3.2.9
-mkdir db
-mkdir logs
-./bin/mongod --fork --dbpath db --logpath logs/log
-popd
-# FYI: How to stop
-# http://d.hatena.ne.jp/msnb125/20140603/1401803075
+# https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org=3.2.12 mongodb-org-server=3.2.12 mongodb-org-shell=3.2.12 mongodb-org-mongos=3.2.12 mongodb-org-tools=3.2.12
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+sudo service mongod start
 
 # chruby - rbenv? I'm okay for it. But it is not make any problem with this. Changing ruby is not a main role of this environment.
 pushd /tmp
