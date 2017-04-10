@@ -27,6 +27,7 @@ sudo apt-get -y install postgresql-9.4 postgresql-server-dev-9.4 postgresql-cont
 # https://github.com/diogob/activerecord-postgres-hstore/issues/99
 # hstore requires superuser permission...
 sudo -u postgres createuser --superuser vagrant
+createdb vagrant
 
 # Mongo DB 3.2
 # https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/
