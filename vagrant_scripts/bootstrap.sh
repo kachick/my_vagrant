@@ -78,6 +78,9 @@ gem install bundler
 sudo apt-get -y install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev gettext
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 
+# for sqlite gem
+sudo apt-get install -y libsqlite3-dev
+
 # Node.js
 # ref: http://qiita.com/seibe/items/36cef7df85fe2cefa3ea
 sudo apt-get install -y nodejs npm
